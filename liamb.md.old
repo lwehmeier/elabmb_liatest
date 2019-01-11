@@ -20,23 +20,6 @@ script:   https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js
 translation: Deutsch  translations/German.md
 
 translation: Français translations/French.md
-
-
-@evalWithChartist
-<script>
-Papa.parse("@0", {
-  download: true,
-  dynamicTyping: true,
-  delimiter: "\t",
-  complete: function(results, file) {@input}
-}
-);
-</script>
-
-<div class="ct-chart ct-golden-section persistent" id="@1"></div>
-
-@end
-
 -->
 
 # HS2 Praktikum Fräsen
@@ -155,9 +138,9 @@ Um auf die gespeicherten Versuchsdaten zugreifen zu können, muss die beim Speic
 12345
 ```
 <script>
-  liaStorage.setItems({"experimentID": `@input(0)`});
+  let data = eval(`@input(0)`);
+  data;
   "Updated experiment ID";
-  liaStorage.getItems("experimentID").experimentID;
 </script>
 
 ### Section 1
@@ -188,12 +171,8 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 ### Section 3/Visualisierung Rauheit
 
 W
-<span id="test">
-</span>
 <div class="ct-chart ct-golden-section" id="chartR1"></div>
 <script>
-document.getElementById('test').innerHTML =
-liaStorage.getItems("experimentID").experimentID;
     Papa.parse("http://localhost:8000/Beispieldaten_eLAB/Daten_Rauheitsmessung/Messdaten_W-Profil.asc1", { //"http://localhost:8000/Beispieldaten_eLAB/Daten_Rauheitsmessung/dummy"
     download: true,
     delimiter: " ",
@@ -260,27 +239,33 @@ P
 </script>
 ### Section 3/Durchmesser
 
-
-``` javascript
-results.data = results.data[0].map((col, i) => results.data.map(row => row[i]));
-//console.log("Finished:", results.data);
-var count=0;
-for (var i=3; i--;) {
-  count+=parseFloat(results.data[1][i]);
-}
-count = Math.round(count);
-new Chartist.Pie('#chartD333', {
-series: [results.data[1][0]-results.data[1][1],results.data[1][1]-results.data[1][2],results.data[1][2]]
-}, {
-  donut: true,
-  donutWidth: 10,
-  donutSolid: true,
-  startAngle: 270,
-  total: Math.round(results.data[1][0])* 2,
-  showLabel: true
+<div class="ct-chart ct-golden-section" id="chartD1"></div>
+<script>
+    Papa.parse("http://localhost:8000/Beispieldaten_eLAB/Daten_Maß/Durchmesser.txt2", {
+    download: true,
+	   dynamicTyping: true,
+    delimiter: "\t",
+    complete: function(results, file) {
+        results.data = results.data[0].map((col, i) => results.data.map(row => row[i]));
+        //console.log("Finished:", results.data);
+        var count=0;
+        for (var i=3; i--;) {
+          count+=parseFloat(results.data[1][i]);
+        }
+        count = Math.round(count);
+        new Chartist.Pie('#chartD1', {
+        series: [results.data[1][0]-results.data[1][1],results.data[1][1]-results.data[1][2],results.data[1][2]]
+        }, {
+          donut: true,
+          donutWidth: 10,
+          donutSolid: true,
+          startAngle: 270,
+          total: Math.round(results.data[1][0])* 2,
+          showLabel: true
+        });
+    }
 });
-```
-@evalWithChartist(http://localhost:8000/Beispieldaten_eLAB/Daten_Maß/Durchmesser.txt2,chartD333)
+</script>
 
 
 ### Section 3/Verschleiß
@@ -294,7 +279,7 @@ series: [results.data[1][0]-results.data[1][1],results.data[1][1]-results.data[1
 
 ### Section 3/Spanart/Form
 
-!?[Video](http://127.0.0.1:8000/Beispieldaten_eLAB/Daten_Spanart-Spanform/test1_NX8.mp4)
+!?[Video](http://localhost:8000/Beispieldaten_eLAB/Daten_Spanart-Spanform/test1_NX8.mp4)
 
 
 ### Section 4/Conclusion
