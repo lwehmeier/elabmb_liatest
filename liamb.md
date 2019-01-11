@@ -285,16 +285,16 @@ series: [results.data[1][0]-results.data[1][1],results.data[1][1]-results.data[1
 
 ### Section 3/Verschleiß
 
-<img src="http://localhost:8000/Beispieldaten_eLAB/Daten_Werkzeugverschleiß/WSP-B_1-1.jpg"/>
+<img src="http://localhost:8000/Beispieldaten_eLAB/Daten_Werkzeugverschleiß/WSP-B_1-1.jpg" width="100%"/>
 
 
-<img src="http://localhost:8000/Beispieldaten_eLAB/Daten_Werkzeugverschleiß/WSP-B_1-2.jpg"/>
+<img src="http://localhost:8000/Beispieldaten_eLAB/Daten_Werkzeugverschleiß/WSP-B_1-2.jpg" width="100%"/>
 
 
 
 ### Section 3/Spanart/Form
 
-!?[Video](http://127.0.0.1:8000/Beispieldaten_eLAB/Daten_Spanart-Spanform/test1_NX8.mp4)
+<video controls="" title="" class="lia-inline lia-movie" width="100%" ><source src="http://127.0.0.1:8000/Beispieldaten_eLAB/Daten_Spanart-Spanform/test1_NX8.mp4">Video</video>
 
 
 ### Section 4/Conclusion
