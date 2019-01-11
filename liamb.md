@@ -285,10 +285,10 @@ series: [results.data[1][0]-results.data[1][1],results.data[1][1]-results.data[1
 
 ### Section 3/Verschleiß
 
-![Img1](http://localhost:8000/Beispieldaten_eLAB/Daten_Werkzeugverschleiß/WSP-B_1-1.jpg)
+<img src="http://localhost:8000/Beispieldaten_eLAB/Daten_Werkzeugverschleiß/WSP-B_1-1.jpg"/>
 
 
-![Img2](http://localhost:8000/Beispieldaten_eLAB/Daten_Werkzeugverschleiß/WSP-B_1-2.jpg)
+<img src="http://localhost:8000/Beispieldaten_eLAB/Daten_Werkzeugverschleiß/WSP-B_1-2.jpg"/>
 
 
 
